@@ -1,0 +1,22 @@
+var http = require('http');
+var fs = require('fs');
+var dnode = require('dnode');
+
+var http = require('http');
+
+var server = http.createServer(require('stack')(
+  require('../lib/stack/static.stack')()
+));
+
+console.log('> bugger started on port 8080');
+
+dnode(function (client) {
+    this.track = function (data, cb) {
+        console.log(data);
+        cb('back');
+    };
+}).listen(server);
+
+server.listen(8080);
+
+console.log('http://localhost:8080/');

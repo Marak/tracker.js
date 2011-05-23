@@ -1,0 +1,22 @@
+<html>
+<head>
+<script src="/dnode.js" type="text/javascript"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        DNode.connect(function (remote) {
+          
+            setInterval(function(){
+              remote.track('ping', function (says) {
+                  document.getElementById('says').innerHTML = says;
+              });
+              
+            }, 3000);
+          
+        });
+    };
+</script>
+</head>
+<body>
+The cat says <span id="says">?</span>.
+</body>
+</html>
