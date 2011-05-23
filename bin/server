@@ -5,6 +5,7 @@ var dnode = require('dnode');
 var http = require('http');
 
 var server = http.createServer(require('stack')(
+  require('../lib/stack/tracker.stack')(),  
   require('../lib/stack/static.stack')()
 ));
 

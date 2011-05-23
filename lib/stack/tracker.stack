@@ -1,0 +1,10 @@
+// track middle-ware
+
+module.exports = function setup(some, args) {
+  // Do server set up stuff here
+  return function handle(res, req, next) {
+    // Handle a single request here
+    req.write('this is the tracker stack');
+    req.end();
+  };
+};
